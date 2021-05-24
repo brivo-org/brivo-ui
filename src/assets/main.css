@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --primary: #4f515a;
+    --secondary: #ccc;
+    --warning: #da0f41;
+}
+body {
+    margin: 0;
+    color: #444;
+}
+form {
+    max-width: 500px;
+    margin: 10vh auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 3px rgba(50, 50, 50, 0.05);
+    border: 1px solid var(--secondary);
+    background: white;
+}
+input, textarea, select {
+    border: 0;
+    border-bottom: 1px solid var(--secondary);
+    padding: 10px;
+    outline: none;
+    display: block;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+button, .btn {
+    background: #69995d;
+    color: white;
+    border-radius: 20px;
+    border: 0;
+    margin: 20px;
+    padding: 8px 30px;
+    font-size: 20px;
+    transition: .2s;
+    cursor: pointer;
+    display: inline-block;
+}
+button:hover, .btn:hover {
+    transition: .2s;
+    background: var(--primary);
+    color: white;
+}
