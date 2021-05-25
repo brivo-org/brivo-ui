@@ -1,4 +1,4 @@
-# brivo-app
+# brivo-ui
 
 ## Project setup
 ```

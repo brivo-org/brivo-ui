@@ -2,26 +2,36 @@
     <transition name="signin" appear>
         <form @submit.prevent="handleSubmit">
             <h3>Login</h3>
-            <input type="email" placeholder="Email" v-model="email">
-            <input type="password" placeholder="Password" v-model="password">
-            <!-- <div v-if="error" class="error">{{ error }}</div> -->
+            <input type="email" placeholder="Email" v-model="data.email" required>
+            <input type="password" placeholder="Password" v-model="data.password" required>
+            <div v-if="error" class="error">{{ error }}</div>
             <button>Log In</button>
+            <p>You dont have an account yet? <router-link :to="{ name: 'Signup' }">Sign Up</router-link></p>
         </form>
     </transition>
 </template>
 
 <script>
 import { ref } from 'vue'
+import useLogin from '../../composables/useLogin'
+
 export default {
     setup() {
-        const email = ref('')
-        const password = ref('')
+        const data = ref({
+            email: '',
+            password: ''
+        })
         
-        const handleSubmit = () => {
-            console.log(email.value, password.value)
+        const { error, login } = useLogin()
+        
+        const handleSubmit = async () => {
+            await login(data.value)
+            if(!error.value){
+                console.log('User logged in')
+            }
         }
         
-        return { email, password, handleSubmit }
+        return { data, error, handleSubmit }
     }
 }
 </script>

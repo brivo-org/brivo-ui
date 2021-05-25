@@ -23,9 +23,8 @@ export default {
         display: flex;
         padding: 0 50px;
         align-items: center;
-        /* background: #ddd; */
         justify-content: space-between;
-        border-bottom: 1px solid #ddd;
+        box-shadow: 3px 5px 7px rgba(40, 40, 40, 0.1);
     }
     img {
         max-width: 140px;
