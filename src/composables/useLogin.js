@@ -12,14 +12,23 @@ const login = async (data) => {
         },
         body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
+    .then(response => {
+        if(response.ok){
+            error.value = null
+        } 
+        else {
+            //console.log(response)
+            return response.json()
+        }
     })
-    .catch((error) => {
-        error.value = error
-        console.error('Error:', error);
-    });
+    .then(data => {
+        throw new Error(data.non_field_errors[0])
+    })
+    .catch(err => {
+        error.value = err.message
+    }) 
+    
+    
 }
 
 const useLogin = () => {

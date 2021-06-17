@@ -3,11 +3,19 @@
       <div>
             <router-link :to="{ name: 'Home' }"><img src="../assets/logo.png" alt="Brivo"></router-link>
       </div>
-      <div>
+      <div class="navbar-buttons">
           <ul>
-              <router-link :to="{ name: 'Signup' }"><li>Sign up</li></router-link>
-              <router-link :to="{ name: 'Signin' }"><li>Sign in</li></router-link>
+              <router-link :to="{ name: 'Signup' }"><li>{{ $t('register') }}</li></router-link>
+              <router-link :to="{ name: 'Signin' }"><li>{{ $t('login') }}</li></router-link>
           </ul>
+          <select v-model="$i18n.locale" name="lang">
+            <option value="pl">
+                PL
+            </option>
+            <option value="en">
+                EN
+            </option>
+          </select>
       </div>
   </nav>
 </template>
@@ -48,4 +56,24 @@ export default {
         background: var(--primary);
         cursor: pointer;
     }
+    .navbar-buttons select{
+        width: 60px;
+    }
+    .navbar-buttons ul, .navbar-buttons select{
+        float: left;
+        
+    }
 </style>
+
+<i18n>
+{
+  "en": {
+    "login": "Sign in",
+    "register": "Sign up"
+  },
+  "pl": {
+    "login": "Zaloguj",
+    "register": "Rejestracja"
+  }
+}
+</i18n>

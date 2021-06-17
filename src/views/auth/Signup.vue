@@ -1,25 +1,14 @@
 <template>
   <transition name="signup" appear>
     <form @submit.prevent="handleSubmit">
-        <h3>Register</h3>
-        <input type="text" placeholder="User name" v-model="data.username" required>
+        <h3>{{ $t('register') }}</h3>
+        <input type="text" :placeholder="$t('username')" v-model="data.username" required>
         <input type="email" placeholder="Email" v-model="data.email" required>
-        <input type="password" placeholder="Password" v-model="data.password1" required>
-        <input type="password" placeholder="Confirm Password" v-model="data.password2" required>
-        <!-- <select v-model="general">
-          <option selected value="null">General units</option>
-          <option value="METRIC">Metric</option>
-          <option value="IMPERIAL">Imperial</option>
-        </select>
-        <select v-model="gravity">
-          <option selected value="null">Gravity units</option>
-          <option value="PLATO">Plato</option>
-          <option value="SG">SG</option>
-        </select> -->
-        <!-- <div v-if="error" class="error">{{ error }}</div> -->
+        <input type="password" :placeholder="$t('password')" v-model="data.password1" required>
+        <input type="password" :placeholder="$t('confirm-password')" v-model="data.password2" required>
         <div v-if="error" class="error">{{ error }}</div>
-        <button>Sign up</button>
-        <p>Already have an account? <router-link :to="{ name: 'Signin' }">Sign In</router-link></p>
+        <button>{{ $t('register') }}</button>
+        <p>{{ $t('already-account') }} <router-link :to="{ name: 'Signin' }">{{ $t('login') }}</router-link></p>
     </form>
   </transition>
 </template>

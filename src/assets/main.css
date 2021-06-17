@@ -46,3 +46,12 @@ button:hover, .btn:hover {
     background: var(--primary);
     color: white;
 }
+.error {
+    color: var(--warning);
+    font-size: 14px;
+    margin: 16px 0;
+}
+
+.router-link-active li{
+    background: var(--primary);
+}

@@ -1,0 +1,10 @@
+{
+  "register": "Sign up",
+  "login": "Sign in",
+  "login-btn": "Sign in",
+  "username": "User name",
+  "password": "Password",
+  "confirm-password": "Confirm password",
+  "not-account": "You dont have an account yet?",
+  "already-account": "Already have an account?"
+}

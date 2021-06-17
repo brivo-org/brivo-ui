@@ -1,0 +1,10 @@
+{
+    "register": "Rejestracja",
+    "login": "Logowanie",
+    "login-btn": "Zaloguj",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "confirm-password": "Potwierdź hasło",
+    "not-account": "Nie masz jeszcze konta?",
+    "already-account": "Masz już konto?"
+  }

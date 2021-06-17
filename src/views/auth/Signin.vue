@@ -1,12 +1,12 @@
 <template>
     <transition name="signin" appear>
         <form @submit.prevent="handleSubmit">
-            <h3>Login</h3>
+            <h3>{{ $t('login') }}</h3>
             <input type="email" placeholder="Email" v-model="data.email" required>
-            <input type="password" placeholder="Password" v-model="data.password" required>
+            <input type="password" :placeholder="$t('password')" v-model="data.password" required>
             <div v-if="error" class="error">{{ error }}</div>
-            <button>Log In</button>
-            <p>You dont have an account yet? <router-link :to="{ name: 'Signup' }">Sign Up</router-link></p>
+            <button>{{ $t('login-btn') }}</button>
+            <p>{{ $t('not-account') }} <router-link :to="{ name: 'Signup' }">{{ $t('register') }}</router-link></p>
         </form>
     </transition>
 </template>
@@ -14,6 +14,7 @@
 <script>
 import { ref } from 'vue'
 import useLogin from '../../composables/useLogin'
+import { useRouter } from 'vue-router'
 
 export default {
     setup() {
@@ -22,12 +23,15 @@ export default {
             password: ''
         })
         
+        const router = useRouter()
+        
         const { error, login } = useLogin()
         
         const handleSubmit = async () => {
             await login(data.value)
             if(!error.value){
                 console.log('User logged in')
+                router.push({ name: 'Home' })
             }
         }
         
